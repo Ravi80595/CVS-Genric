@@ -2,12 +2,16 @@ import express from "express"
 import { addProduct, deleteProductAdmin, getAllProducts, singleProductAdmin, updateProductAdmin } from "../Controllers/Admin/Products.js"
 import { deleteUserByAdmin, getAllUsersAdmin, singleUserDetails } from "../Controllers/Admin/Users.js"
 import { allOrders, getSingleOrder, updateOrderStatus } from "../Controllers/Admin/Orders.js"
+import { loginAdmin, registerAdmin } from "../Controllers/Admin/AdminAuth.js"
 
 
 const router = express.Router()
+    
+router.post('/adminRegister',registerAdmin)
+router.post('/adminLogin',loginAdmin)
+
 
             //Product routes
-
 router.get('/allProducts',getAllProducts)
 router.get('/singleProduct/:id',singleProductAdmin) 
 router.post('/addproduct',addProduct)

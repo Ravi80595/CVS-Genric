@@ -12,7 +12,6 @@ export const addProduct=async(req,res)=>{
           category,
           image,
         });
-    
         // Save the new product to the database
         const savedProduct = await newProduct.save();
     
