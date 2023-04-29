@@ -14,8 +14,8 @@ export const createCategory=async(req,res)=>{
     res.status(500).send({ error: 'Error creating category in database' });
   }
 }
-// ........................... add product to category ...............................
 
+// ........................... add product to category ...............................
 
 export const addProductToCategory=async(req,res)=>{
     try {
@@ -40,9 +40,7 @@ export const getAllProducts = async(req,res)=>{
     }
 }
 
-
-
-// ........................... Product Get Method ...............................
+// ...........................Single Product Get Method ...............................
 
 export const getProduct = async (req, res) => {
     try {
@@ -53,3 +51,4 @@ export const getProduct = async (req, res) => {
         console.log(err)
     }
 }
+

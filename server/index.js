@@ -3,7 +3,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import userRoutes from './Routes/users.js'
-// import postRoutes from './Routes/posts.js'
+import adminRoutes from './Routes/admins.js'
 
 
 const app = express()
@@ -13,7 +13,7 @@ dotenv.config()
 
 
 app.use("/user",userRoutes)
-// app.use('/post',postRoutes)
+app.use('/admin',adminRoutes)
 
 
 
