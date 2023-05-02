@@ -1,7 +1,9 @@
 import Dashboard from './Admin/Dashboard';
-import Login from './Admin/Login';
-import Signup from './Admin/Signup';
+// import Login from './Admin/Login';
+// import Signup from './Admin/Signup';
 import './App.css';
+import Navbar from './Components/Navbar';
+import AllRoutes from './Routes/AllRoutes';
 
 
 function App() {
@@ -9,7 +11,9 @@ function App() {
 
 return (
     <div>
-      <Dashboard/>
+      {/* <Dashboard/> */}
+      <Navbar/>
+      <AllRoutes/>
       {/* <Login/> */}
     </div>
   );
