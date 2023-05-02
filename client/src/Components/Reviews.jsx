@@ -1,4 +1,4 @@
-import { Box, color, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, color, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import { useMediaQuery } from '@chakra-ui/react'
@@ -53,50 +53,45 @@ const Reviews = () => {
     <Box>
       {/* <img src={Playstore}/> */}
     </Box>
-      {/* <Heading
-        p={5}
-        textAlign={"start"}
-        size="lg"
-        color={"#30363C"}
-        fontFamily={"sans-serif"}
-      >
-     What Our Customers have to Say
-      </Heading> */}
-
-     
-
-      <Flex justifyContent={"space-between"} p={5} w={"100%"} gap='70px '>
+       <Flex justifyContent={"space-between"} p={5} w={"100%"} gap='70px '>
         <Swiper
-          slidesPerView={isBigScreen ? 3 : isTablet ? 2 : isMobile ? 2 : 4}
+          slidesPerView={isBigScreen ? 3 : isTablet ? 2 : isMobile ? 2 : 3}
           spaceBetween={0}
-          loop={true}
+          loop={true} 
           loopFillGroupWithBlank={true}
           // navigation={true}
           modules={[Navigation]}
           className="mySwiper"
         >
           {ReviewsData.map((el, i) => (
-            <SwiperSlide style={{ gap: "10px", color: "black" }}>
-            <Box key={i} width="344px" textAlign="left">
+            <SwiperSlide style={{ gap: "10px", color: "black" }} border='1px solid grey'>
+
+            <Box key={i} width="350px" textAlign="left" border='2px solid grey'>
+              <Flex gap={5} p={5}>
+                <Image w={50} borderRadius={50} src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png'/>
+                <Box>
               <Heading fontSize="16px" fontWeight="600">
                 {el.name}
               </Heading>
               <Heading fontSize="14px" fontWeight="400" marginTop="5px">
                 {el.date}
               </Heading>
+                </Box>
+              </Flex>
               <Box
                 width="344px"
                 border="1px solid #e2fff2"
                 borderRadius="7px"
                 padding="24px"
                 marginTop="20px"
-                bg="#f1fef8"
+                // bg="#f1fef8"
                 height="302px"
               >
                 <Heading color="#bfeddd">"</Heading>
                 <Heading fontSize="16px" color="#4f4d4a" fontWeight="500">
                   {el.review}
                 </Heading>
+                <Text pt={5} color="#4f4d4a">1 week ago</Text>
               </Box>
             </Box>
             </SwiperSlide>
