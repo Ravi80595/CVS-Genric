@@ -3,10 +3,13 @@ import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import userRoutes from './Routes/users.js'
+// import bodyParser from 'body-parser';
 import adminRoutes from './Routes/admins.js'
+// import Product from './Modals/Product.js'
 
-
+// Product.insertMany()
 const app = express()
+// app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors())
 app.use(express.json())
 dotenv.config()

@@ -1,32 +1,6 @@
-import Category from "../Modals/Category.js";
+import Category from "../Modals/Category.js"
 import Product from "../Modals/Product.js"
 
-
-
-// ........................... Create category method ...............................
-
-export const createCategory=async(req,res)=>{
-    try {
-      const { name } = req.body;
-    const category = await Category.create({ name });
-    res.status(201).json(category);
-  } catch (err) {
-    res.status(500).send({ error: 'Error creating category in database' });
-  }
-}
-
-// ........................... add product to category ...............................
-
-export const addProductToCategory=async(req,res)=>{
-    try {
-    const categoryId = req.params.categoryId;
-    const { name, description, price } = req.body;
-      const product = await Product.create({ name, description, price, category: categoryId });
-      res.status(201).json(product);
-    } catch (err) {
-      res.status(500).send({ error: 'Error adding product to category in database' });
-    }
-}
 
 // ...........................All Products Get Method ...............................
 
@@ -38,6 +12,27 @@ export const getAllProducts = async(req,res)=>{
     }catch(err){
         console.log(err)
     }
+}
+
+export const getAllCategories=async(req,res)=>{
+    try{
+      const categories = await Category.find();
+      res.status(200).json(categories);
+    }catch(err){
+      res.status(500).send({ error: 'Error adding product to category in database' });
+  
+    }
+  }
+
+
+export const getProductByCategory=async(req,res)=>{
+    try {
+        const category = req.params.category;
+        const products = await Product.find({ categoryName: category });
+        res.json(products);
+      } catch (error) {
+        res.status(500).json({ message: error.message });
+      }
 }
 
 // ...........................Single Product Get Method ...............................

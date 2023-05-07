@@ -6,11 +6,13 @@ const currentDate=GetCurrentDate()
 const currentTime=GetCurrentTime()
 
 const productSchema = new mongoose.Schema({
-    productName: {type: String, required: true},
-    price: {type: String, required: true},
-    // listPrice: {type: String, required: true},
-    category: {type: String, required: true},
-    // type: {type: String, required: true},
+    name: {type: String, required: true},
+    price: {type: String},
+    category: {type: String},
+    brandName:{type:String},
+    Strength:{type:String},
+    Form:{type:String},
+    categoryName:{type:String},
     description: {type: String},
     date:{type:String,default:currentDate},
     time:{type:String,default:currentTime},

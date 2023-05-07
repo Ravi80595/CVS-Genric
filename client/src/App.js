@@ -12,7 +12,7 @@ function App() {
 return (
     <div>
       {/* <Dashboard/> */}
-      <Navbar/>
+      {/* <Navbar/> */}
       <AllRoutes/>
       {/* <Login/> */}
     </div>

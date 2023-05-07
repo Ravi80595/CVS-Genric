@@ -24,10 +24,12 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Footer from "../Components/Footer";
 import SideBar from "../Components/SideBar";
+import Navbar from '../Components/Navbar'
 
 function HomePage() {
   return (
     <>
+    <Navbar/>
       <Flex justifyContent={"space-evenly"} mb={10}>
         {/* Mobile View */}
         <Hide breakpoint="(max-width: 400px)">

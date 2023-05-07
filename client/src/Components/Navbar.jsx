@@ -5,6 +5,7 @@ import { screen } from "@testing-library/react";
 import Drop from "./dropdown";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { Show, Hide } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -36,11 +37,13 @@ function Navbar() {
 
       <Show breakpoint="(min-width: 400px)">
         <Flex p={5} bg={"#0c8281"} justifyContent='space-around'>
+          <Link to='/'>
           <Image
             mr={40}
             h={12}
             src="https://cdn-cjggf.nitrocdn.com/HPkQrOnkFqWDWMDqtHKZnZrDSaZHrXHw/assets/images/optimized/rev-f88a99a/wp-content/uploads/2019/04/adg-1-1.png"
-          ></Image>
+            ></Image>
+            </Link>
           <Drop />
 
           <Box w={"80px"}></Box>
@@ -75,11 +78,13 @@ function Navbar() {
           fontSize={13}
           mt={3}
           mr={"6%"}
+          pr={10}
           fontWeight={"bold"}
           _hover={{ color: "#0c8281", cursor: "pointer" }}
         >
           Home
         </Text>
+        <Link to='/products'>
         <Text
           color={"#74828a"}
           fontSize={13}
@@ -87,9 +92,10 @@ function Navbar() {
           mr={"6%"}
           fontWeight={"bold"}
           _hover={{ color: "#0c8281", cursor: "pointer" }}
-        >
-          All Categories
+          >
+          Products
         </Text>
+          </Link>
         <Text
           color={"#74828a"}
           fontSize={13}

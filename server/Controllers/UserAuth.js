@@ -3,7 +3,6 @@ import  jwt  from 'jsonwebtoken'
 import User from '../Modals/User.js';
 
 
-
 // ........................... User Signup Method ...............................
 
 export const register = async (req,res)=>{
@@ -39,8 +38,7 @@ export const login = async(req,res)=>{
 
         const token= jwt.sign({id:user._id},process.env.JWT_KEY)
         delete user.password;
-        res.status(200).json({token,user})
-
+        res.status(200).json({token,user,msg:"Login Success"})
     }catch(err){
         console.log(err)
     }
