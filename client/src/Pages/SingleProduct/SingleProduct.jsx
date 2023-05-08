@@ -28,37 +28,54 @@ const SingleProduct = () => {
 };
  const [item,setItem]=useState({})
  const [qty,setQty]=useState()
- const {_id}=useParams() 
+ const {id}=useParams() 
  const navigate=useNavigate()
-
+const {token}=JSON.parse(localStorage.getItem('cvs'))
+const [cartProducts,setCartProducts]=useState([])
 
 const handlePrevPage=()=>{
   navigate('/productspage')
 }
 
+
 useEffect(() => {
-    axios
-      .get(`${baseUrl}/product/singleproduct/${_id}`)
+    axios.get(`${baseUrl}/user/singleProduct/${id}`)
       .then((res) => {
         setItem(res.data);
       })
       .catch((err) => {
         console.log("err", err);
-      });   
+      });  
+      getCart() 
   }, []);
 
+  const getCart=()=>{
+    axios.get(`${baseUrl}/cart`,{
+      headers:{
+        Authorization:`Bearer ${token}`
+      }
+    })
+    .then((res)=>{
+      console.log(res.data)
+      setCartProducts(res.data)
+    })
+  }
 
 const {listPrice,salePrice,productImage,productName,category,type,description}=item
 
 const addToCart=()=>{
   const payload={
-    quantity:qty,product_Id:_id,
-    listPrice,salePrice,productImage,productName,
-    category,type,description
+    quantity:Number(qty),
+    productId:id
   }
-axios.post(`${baseUrl}/cart/addtocart`,payload)
+axios.post(`${baseUrl}/cart/addProduct`,payload,{
+  headers:{
+    Authorization:`Bearer ${token}`
+  }
+})
 .then((res)=>{
           alert("item added to cart")
+          console.log(res.data)
         })
         .catch((err)=>{
           console.log(err)
@@ -75,23 +92,18 @@ return (
     <>
     <Navbar/>
       <Box  w="90%"  m="auto" mt='40px' className={Style.containter}>
-        <Text className={Style.heading}>
-        {item?.productName} 
-      
-          </Text>
+        <Text className={Style.heading}>Brand : {item?.brandName} </Text>
     {/* Main box */}
         <Box mt="30px" display='flex' className={Style.main_box}>
           <Box  w="70%" className={Style.main_box1}>
-
-            {/* Image and Description box */}
             <Box display='flex' className={Style.img_desc_box}>
               <Box w="30%" h="280px"  className={Style.img_box}>
                 <Image className={Style.imgg}
                 border="1px solid gray" 
                 borderRadius='8px'
-                p="10px"
+                  p="10px"
                   h="100%"
-                  src={item?.productImage}
+                  src={'https://thumbnail.imgbin.com/13/18/17/imgbin-coffee-tea-packaging-and-labeling-parcel-bag-design-G9E3ksvw2BMKK24u9zX6A61pT_t.jpg'}
                   alt="Dan Abramov"
                 />
               </Box>
@@ -103,10 +115,10 @@ return (
                   mt="6px"
                   color="rgb(79,88,104)"
                 >
-                       {item?.productName} 
+                       {item?.name} 
                 </Heading>
                 <Text mt="10px" mb="10px" color="teal" cursor='pointer' onClick={handlePrevPage}>
-                  Visit {item?.type} store{" "}
+                  Type :  {item?.Form}
                 </Text>
 
                 {/* Rating and price box */}
@@ -131,12 +143,12 @@ return (
 
                     <Flex mt="10px">
                       <Heading size="sm" fontWeight="bold" fontSize="20px">
-                        ₹{item?.salePrice}
+                        ₹{item?.price}
                       </Heading>
                       <Text color="gray.500" ml="10px">
                         MRP{" "}
                         <span style={{ textDecoration: "line-through" }}>
-                          ₹{item?.listPrice}
+                          ₹{item?.price}
                         </span>
                       </Text>
                       <Text
@@ -171,12 +183,12 @@ return (
                   </Select>
                   
           
-                    <Button colorScheme='teal'mt='15px'  fontSize='20px' onClick={()=>addToCart(_id,listPrice,salePrice,productImage,productName)} className={Style.addCartBtn1}>Add To Cart</Button>
+                    <Button colorScheme='teal'mt='15px'  fontSize='20px' onClick={()=>addToCart(id,listPrice,salePrice,productImage,productName)} className={Style.addCartBtn1}>Add To Cart</Button>
                   
                   </Box>
                  
                   </Box>
-                  <Button colorScheme='teal'  fontSize='20px' onClick={()=>addToCart(_id,listPrice,salePrice,productImage,productName)} className={Style.addCartBtn2}>Add To Cart</Button>
+                  <Button colorScheme='teal'  fontSize='20px' onClick={()=>addToCart(id,listPrice,salePrice,productImage,productName)} className={Style.addCartBtn2}>Add To Cart</Button>
                 </Box>
               </Box>
             </Box>
@@ -185,7 +197,7 @@ return (
             {/* Description in bottom section   */} 
             <Divider mt='50px'/>
 
-            <Box  p="20px" mt='50px'>
+            {/* <Box  p="20px" mt='50px'>
               <Heading
                 size="sm"
                 fontSize="18px"
@@ -231,7 +243,7 @@ return (
                 <ListItem mt='10px'>Helps improve attention and concentration to make your child sharper</ListItem>
                 <ListItem mt='10px'>Horlicks Nutrition Drink improves the power of milk</ListItem>
               </UnorderedList>
-            </Box>
+            </Box> */}
           </Box>
           <Box  w="30%" p="20px" className={Style.view_cart2}>
             <Heading
@@ -241,7 +253,7 @@ return (
               mt="6px"
               color="rgb(79,88,104)"
             >
-           {/* {cartproducts && cartproducts.length} Items in Cart */}
+           {cartProducts.products && cartProducts.products.length} Items in Cart
             </Heading>
             {/* view cart buttton 2 */}
        

@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import userRoutes from './Routes/users.js'
 // import bodyParser from 'body-parser';
 import adminRoutes from './Routes/admins.js'
+import cartRoutes from './Routes/carts.js'
 // import Product from './Modals/Product.js'
 
 // Product.insertMany()
@@ -17,6 +18,7 @@ dotenv.config()
 
 app.use("/user",userRoutes)
 app.use('/admin',adminRoutes)
+app.use('/cart',cartRoutes)
 
 
 

@@ -13,43 +13,73 @@ import {
   import {useNavigate} from "react-router-dom";
   import styles from "./cartpage.module.css";
 import Navbar from "../../Components/Navbar";
+import axios from "axios";
+import { baseUrl } from "../../Utils/BaseUrl";
 
 
 const Cartpage = () => {
-    const grandtotal = 0
+    let grandTotal = 0
     const navigate = useNavigate();
+    const {token}=JSON.parse(localStorage.getItem('cvs'))
     const [cartproducts,setCartProducts]=useState([])
+
+
     const GetCartVal = () => {
       
     };
   
   
-    const RemoveProduct = (product_Id) => {
-    //   GetCartData();
-      window.location.reload()
+const RemoveProduct = (product_Id) => {
+    axios.delete(`${baseUrl}/cart/deleteProduct/${product_Id}`,{
+      headers:{
+        Authorization:`Bearer ${token}`
+      }
+    }).then((res)=>{
+      console.log(res)
+      alert("Product deleted successfully")
+      getCart()
+    })
     };
   
-    useEffect(() => {
-      GetCartVal();
-    }, []);
+useEffect(() => {
+  getCart()
+}, [])
   
-    const proceedtopayment = () => {
-      navigate("/payment");
-    };
+const getCart=()=>{
+  axios.get(`${baseUrl}/cart`,{
+    headers:{
+      Authorization:`Bearer ${token}`
+    }
+  })
+  .then((res)=>{
+    console.log(res.data)
+    setCartProducts(res.data)
+  })
+}
+
+const proceedtopayment = () => {
+  navigate("/payment");
+};
   
-    const selectqty = (e, id) => {
-      const quantity = e.target.value;
-      const product_Id = id;
-    //   GetCartData();
-      window.location.reload()
-    };
+const selectqty = (e, id) => {
+  const quantity = e.target.value;
+  const product_Id = id;
+  window.location.reload()
+};
+
+const convertdecimal = (p1, p2) => {
+  const ans = ((p1 - p2) / p1) * 100;
+  return ans.toFixed();
+};
+
+if (cartproducts.products) {
+  grandTotal = cartproducts.products.reduce((acc, item) => {
+    return acc + item.price;
+  }, 0);
+  console.log(grandTotal)
+}
   
-    const convertdecimal = (p1, p2) => {
-      const ans = ((p1 - p2) / p1) * 100;
-      return ans.toFixed();
-    };
-  
-    return (
+return (
       <>
         <Navbar/>
         {/* {loading ? "loading" : ""} */}
@@ -62,24 +92,24 @@ const Cartpage = () => {
                 </h1>
               ) : (
                 <h1>
-                  {cartproducts && cartproducts.length}Items in your cart{" "}
+                  {cartproducts.products && cartproducts.products.length} Items in your cart{" "}
                   <span></span>
                 </h1>
               )}
             </VStack>
             {/* ............Product box........... */}
-            {cartproducts &&
-              cartproducts.map((el) => (
-                <VStack>
+            {cartproducts.products &&
+              cartproducts.products.map((el) => (
+                <VStack key={el.product._id}>
                   <Box className={styles.prodbox}>
                     <Box>
-                      <img src={el.productImage} alt={el.productImage} />
+                      <img src={'https://thumbnail.imgbin.com/13/18/17/imgbin-coffee-tea-packaging-and-labeling-parcel-bag-design-G9E3ksvw2BMKK24u9zX6A61pT_t.jpg'} alt={el.productImage} />
                     </Box>
                     <Box className={styles.contentdiv}>
-                      <h3>{el.productName}</h3>
-                      <h3>{el.type}</h3>
+                      <h3>{el.product.name}</h3>
+                      <h3>{el.Form}</h3>
                       <h2>
-                        <span>MRP ₹{el.listPrice}</span>{" "}
+                        <span>MRP ₹{el.product.price}</span>{" "}
                         <span>₹{el.salePrice}*</span>{" "}
                         <span>
                           {convertdecimal(el.listPrice, el.salePrice)}% OFF
@@ -89,11 +119,11 @@ const Cartpage = () => {
                     </Box>
                     <Box className={styles.buttonbox}>
                       <RiDeleteBin6Line
-                        onClick={() => RemoveProduct(el.product_Id)}
+                        onClick={() => RemoveProduct(el.product._id)}
                       />
                       <Select
                         placeholder="Qty "
-                        onChange={(e) => selectqty(e, el.product_Id)}
+                        onChange={(e) => selectqty(e, el.product._id)}
                       >
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -110,7 +140,7 @@ const Cartpage = () => {
             <Box className={styles.buybtnbox}>
               <VStack className={styles.cartcount}>
                 <h1>
-                  {/* Cart Total <span> ₹{grandtotal}</span> */}
+                  {/* Cart Total <span> ₹{grandTotal}</span> */}
                 </h1>
               </VStack>
               <VStack>
@@ -125,24 +155,24 @@ const Cartpage = () => {
               <Box className={styles.cartprice}>
                 <p>
                   <span className={styles.subtitle}>Cart Value</span>{" "}
-                  <span>₹{grandtotal}</span>
+                  <span>₹{grandTotal}</span>
                 </p>
                 <p>
                   <span className={styles.subtitle}>Delivery charges</span>{" "}
-                  {grandtotal > 400 ? <span>FREE</span> : <span>₹40</span>}
+                  {/* {grandTotal > 400 ? <span>FREE</span> : <span>₹40</span>} */}
                 </p>
   
-                {grandtotal > 400 ? (
+                {/* {grandTotal > 400 ? (
                   ""
                 ) : (
-                  <p>To get free Delivery Add ₹{400 - grandtotal} </p>
-                )}
+                  <p>To get free Delivery Add ₹{400 - grandTotal} </p>
+                )} */}
               </Box>
               <Divider />
   
               <h1 className={styles.amountpaid}>
                 <span className={styles.subtitle}>Amount to be paid</span>
-                <span> ₹{grandtotal}</span>
+                <span> ₹{grandTotal}</span>
               </h1>
             </Box>
           </Box>

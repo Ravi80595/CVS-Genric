@@ -48,6 +48,13 @@ const handleClick=(el)=>{
     navigate(`/singleProduct/${el._id}`)
 }
 
+const handleRadioClick=(value)=>{
+  axios.get(`${baseUrl}/productsByCategory/${value}`)
+  .then((res)=>{
+    console.log(res.data)
+  })
+}
+
 
 
 return (
@@ -59,15 +66,16 @@ return (
         <Box w='90%'>
       <Heading size="sm" fontSize="30px" color='rgb(79,88,104)'>Filter</Heading>
               <Text mt='20px' mb='15px' fontSize='20px'>Category</Text>
-  <RadioGroup onChange={handleRadioChange} value={selectedCategory}>
-      {categories.map(category => (
-        <Flex key={category.id} mb='10px'>
-          <Text>{category.name}</Text>
-          <Spacer />
-          <Radio value={category.id}></Radio>
-        </Flex>
-      ))}
-    </RadioGroup>
+    <RadioGroup value={selectedCategory}>
+        {categories.map(category => (
+          <Flex key={category.id} mb='10px'>
+            <Text>{category.name}</Text>
+            <Spacer />
+            <Radio value={category.id}
+            onClick={() => handleRadioClick(category._id)}></Radio>
+          </Flex>
+        ))}
+      </RadioGroup>
          </Box>
       </Box>
       <Box w="70%" borderRadius='10px' bg='white' box-shadow='rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' padding='10px' className={Style.data_box} >
@@ -131,7 +139,7 @@ return (
               {el.name}
             </Heading>
             <Flex mt="10px">
-              <Text color='gray.500' textDecoration="line-through">MRP ₹{'1599'}</Text>
+              <Text color='gray.500'>{el.brandName}</Text>
               <Text
                 ml="10px"
                 bg="rgb(249,140,142)"
@@ -139,7 +147,7 @@ return (
                 pr="5px"
                 color="white"
               >
-                {'20%'}
+                {el.Form}
               </Text>
             </Flex>
             <Heading size="sm">₹{el.price}</Heading>

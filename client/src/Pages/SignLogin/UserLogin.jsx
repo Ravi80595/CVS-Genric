@@ -30,6 +30,7 @@ const handleLogin=()=>{
         axios.post(`${baseUrl}/user/login`,payload)
         .then((res)=>{
             alert(res.data.msg)
+            localStorage.setItem('cvs',JSON.stringify(res.data))
             setValues({email:"",password:""})
             console.log(res)
             navigate('/')
