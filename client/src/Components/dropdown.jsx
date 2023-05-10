@@ -22,7 +22,7 @@ function Drop() {
     <Box color={"black"} >
       <Menu isLazy w='500px'> 
         <MenuButton w='300px'
-          h='50px'
+          h='40px'
           color={"blackAlpha.700"}
           bg={"white"}
           as={Button}

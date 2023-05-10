@@ -50,12 +50,9 @@ const Reviews = () => {
   return (
     
     <Box p={5}>
-    <Box>
-      {/* <img src={Playstore}/> */}
-    </Box>
        <Flex justifyContent={"space-between"} p={5} w={"100%"} gap='70px '>
         <Swiper
-          slidesPerView={isBigScreen ? 3 : isTablet ? 2 : isMobile ? 2 : 3}
+          slidesPerView={isBigScreen ? 3 : isTablet ? 2 : isMobile ? 1 : 3}
           spaceBetween={0}
           loop={true} 
           loopFillGroupWithBlank={true}

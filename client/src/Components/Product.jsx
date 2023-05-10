@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Button, Flex, Image, Text, background } from "@chakra-ui/react";
 
-function Product() {
+function Product({image,title}) {
   return (
     <>
       <Box
@@ -16,10 +16,10 @@ function Product() {
           roundedTopRight={20}
           h={44}
           w={"100%"}
-          src="https://ik.manmatters.com/media/misc/pdp/26166758/CR_1600_1600x1200_HN8zyHLxw.jpg?tr=w-500"
+          src={image}
         ></Image>
         <Text pl={4} paddingTop={2} fontWeight={"bold"} fontSize={"18"}>
-          Pre Workout Gummies (60N)
+          {title}
         </Text>
         <Flex pl={4} paddingTop={1}>
           <Text mr={1} fontSize={22} color={"black"} fontWeight={"bold"}>

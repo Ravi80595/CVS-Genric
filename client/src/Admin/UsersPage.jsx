@@ -9,7 +9,7 @@ const UsersPage = () => {
   const [loading,setLoading]=useState(false)
   const navigate=useNavigate()
 //   const { token } = JSON.parse(localStorage.getItem("socialPshcyoToken"))
-
+console.log(users,'users')
 
 useEffect(()=>{
   setLoading(true)
@@ -55,37 +55,24 @@ return (
         <Input fontSize={["10px","10px","10px","20px"]} onInput={handleChange} w={["30%","30%","30%","55%"]} placeholder="search user"/>
         <Text w={["30%","30%","30%","20%"]} fontSize={["10px","10px","10px","20px"]}>Verified Users : 0</Text>
       </Flex>
-      {/* <Flex mb={10}mt={5} justifyContent="space-between">
-        <Select w={["40%","40%","40%","20%"]} fontSize={["10px","10px","10px","20px"]} >
-          <option value="">SortBy Name</option>
-          <option value="">LTH</option>
-          <option value="">HTL</option>
-        </Select>
-        <Select w={["40%","40%","40%","20%"]} fontSize={["10px","10px","10px","20px"]}>
-          <option value="">FilterBy Location</option>
-          <option value="">Haryana</option>
-          <option value="">Delhi</option>
-          <option value="">Punjab</option>
-        </Select>
-      </Flex> */}
           <TableContainer>
             <Table size='sm'>
               <Thead>
                 <Tr textAlign='center'>
                   <Th>Image</Th>
-                  <Th>User-name</Th>
                   <Th>Name</Th>
                   <Th>Email</Th>
+                  <Th>Date</Th>
                 </Tr>
               </Thead>
               <Tbody>
       {
         users && users.map(ele=>(
                 <Tr onClick={()=>handleNavigate(ele)} cursor="pointer" _hover={{backgroundColor:"#f3f4f6"}}>
-                  <Td><Image w={50} src={`${baseUrl}/assets/${ele.picturePath}`}/></Td>
-                  <Td>{ele.username}</Td>
+                  <Td><Image w={50} src={`https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png`}/></Td>
                   <Td>{ele.firstName} {ele.lastName}</Td>
                   <Td>{ele.email}</Td>
+                  <Td>{ele.date}</Td>
                 </Tr>
                 ))
               }

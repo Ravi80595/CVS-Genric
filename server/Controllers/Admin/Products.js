@@ -1,33 +1,49 @@
+import Category from '../../Modals/Category.js';
 import Product from '../../Modals/Product.js'
 
 
-export const addProduct=async(req,res)=>{
-    try {
-        const { productName, description, price, category, image } = req.body;
-        // Create a new product using the Product model
-        const newProduct = new Product({
-          productName,
-          description,
-          price,
-          category,
-          image,
-        });
-        // Save the new product to the database
-        const savedProduct = await newProduct.save();
-    
-        res.status(201).json(savedProduct);
-      } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Server Error' });
-      }
+// ........................... Create category method ...............................
+
+export const createCategory=async(req,res)=>{
+  try {
+    const { name } = req.body;
+  const category = await Category.create({ name });
+  res.status(201).json(category);
+} catch (err) {
+  res.status(500).send({ error: 'Error creating category in database' });
+}
+}
+
+// ........................... add product to category ...............................
+
+export const addProductToCategory = async (req, res) => {
+  try {
+    const { categoryName, name, description, price,brandName,Strength,Form } = req.body;
+    const category = await Category.findOne({ name: categoryName });
+    const categoryId = category._id;
+    console.log(category,name,description,price)
+    const product = await Product.create({ name, description, price, category: categoryId,categoryName:categoryName ,brandName,Strength,Form});
+    res.status(201).json(product);
+  } catch (err) {
+    res.status(500).send({ error: 'Error adding product to category in database' });
+  }
+}
+
+
+export const getAllCategories=async(req,res)=>{
+  try{
+    const categories = await Category.find();
+    res.status(200).json(categories);
+  }catch(err){
+    res.status(500).send({ error: 'Error adding product to category in database' });
+
+  }
 }
 
 
 export const getAllProducts=async(req,res)=>{
     try {
-        // Find all products using the Product model
         const products = await Product.find();
-    
         res.status(200).json(products);
       } catch (error) {
         console.error(error);

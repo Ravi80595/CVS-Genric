@@ -22,13 +22,16 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faPinterest } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import Footer from "../Components/Footer";
+// import Footer from "../Components/Footer";
 import SideBar from "../Components/SideBar";
+import Navbar from '../Components/Navbar'
+import Footer from "../Components/Footer/Foter";
 
 function HomePage() {
   return (
     <>
-      <Flex justifyContent={"space-evenly"} mb={10}>
+    <Navbar/>
+      <Flex justifyContent={"space-evenly"} mb={10} w='95%' m='auto'>
         {/* Mobile View */}
         <Hide breakpoint="(max-width: 400px)">
           <SideBar />
@@ -113,7 +116,8 @@ function HomePage() {
           <FontAwesomeIcon icon={faLinkedin} size="lg" color="white" />
         </Box>
       </Flex>
-      <Footer />
+      {/* <Footer /> */}
+      <Footer/>
     </>
   );
 }
