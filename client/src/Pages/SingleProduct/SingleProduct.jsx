@@ -253,7 +253,7 @@ return (
               mt="6px"
               color="rgb(79,88,104)"
             >
-           {cartProducts.products && cartProducts.products.length} Items in Cart
+           {/* {cartProducts.products && cartProducts.products.length} Items in Cart */}
             </Heading>
             {/* view cart buttton 2 */}
        

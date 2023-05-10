@@ -21,16 +21,13 @@ function Accordian() {
               color={"#0c8281"}
             >
               <Box as="span" flex="1" textAlign="left" fontWeight={"bold"}>
-                Why Choose Allday Generic
+                100% Delivery Guarantee
               </Box>
               <AccordionIcon color={"#0c8281"} _expanded={{ color: "red" }} />
             </AccordionButton>
           </h2>
           <AccordionPanel pb={4}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Our customer service and customer satisfaction rank above everything else. so in the event that there is ever a delay in your shipment. you can count AllDayGenric to ship your order at no cost in accordance to our 100% Delivery Guarantee.
           </AccordionPanel>
         </AccordionItem>
         <AccordionItem m={2}>
@@ -47,10 +44,23 @@ function Accordian() {
             </AccordionButton>
           </h2>
           <AccordionPanel pb={4}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+          All Day Genric belive in directing our skills and expertise in delvivering and developing quality, in online drugstore services which is not gained by accident.    </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem m={2}>
+          <h2>
+            <AccordionButton
+              _expanded={{ bg: "#0c8281", color: "white" }}
+              bg={"blackAlpha.100"}
+              color={"#0c8281"}
+            >
+              <Box as="span" flex="1" textAlign="left" fontWeight={"bold"}>
+               Hassle-Free Service
+              </Box>
+              <AccordionIcon color={"#0c8281"} _expanded={{ color: "red" }} />
+            </AccordionButton>
+          </h2>
+          <AccordionPanel pb={4}>
+            Our home delivery service provides the utmost convenice to help your order drugs online without compromisng on time and quality. Along with being well-recoginzed for dispering high quality drugs inexpensively.
           </AccordionPanel>
         </AccordionItem>
         <AccordionItem m={2}>
@@ -61,36 +71,13 @@ function Accordian() {
               color={"#0c8281"}
             >
               <Box as="span" flex="1" textAlign="left" fontWeight={"bold"}>
-                Why Choose Allday Generic
+               100% No Questions Asked Money Back Guarantee
               </Box>
               <AccordionIcon color={"#0c8281"} _expanded={{ color: "red" }} />
             </AccordionButton>
           </h2>
           <AccordionPanel pb={4}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </AccordionPanel>
-        </AccordionItem>
-        <AccordionItem m={2}>
-          <h2>
-            <AccordionButton
-              _expanded={{ bg: "#0c8281", color: "white" }}
-              bg={"blackAlpha.100"}
-              color={"#0c8281"}
-            >
-              <Box as="span" flex="1" textAlign="left" fontWeight={"bold"}>
-                Why Choose Allday Generic
-              </Box>
-              <AccordionIcon color={"#0c8281"} _expanded={{ color: "red" }} />
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            If at any time, for any reason you are not satisfed, so well will issue a total refund to you as part of our 100% No Question Asked Money Back Guarantee. AllDayGenric belive that you should notible to keep a product if you are not completely satisfied.
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
