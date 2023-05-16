@@ -9,74 +9,62 @@ import {
   PolicyInfo,
 } from "./FooterLinks";
 import styles from "./footer.module.css";
-import { BsFacebook, BsInstagram, BsYoutube, BsTwitter } from "react-icons/bs";
+import {AiOutlineMail} from 'react-icons/ai'
+
 const Footer = () => {
   return (
     <div className={styles.container}>
       <Stack direction="horizontal" justify="space-between">
-        <Stack gap="10px">
-          <Text fontSize="16px" fontWeight="700">
-            Company
+        <Stack>
+          <Text fontSize="16px" fontWeight="bold">
+           OUR SERVICES
           </Text>
           {Company.map((el, i) => (
-            <Text key={i} fontSize="14px" fontWeight="500" cursor="pointer">
+            <>
+            <Text key={i} fontSize="14px" cursor="pointer">
               {el.link}
             </Text>
-          ))}
-          <Text fontSize="16px" fontWeight="700" paddingTop="20px">
-            Our Services
-          </Text>
-          {OurServices.map((el, i) => (
-            <Text key={i} fontSize="14px" fontWeight="500" cursor="pointer">
-              {el.link}
-            </Text>
+            <hr />
+            </>
           ))}
         </Stack>
-        <Stack gap="10px">
-          <Text fontSize="16px" fontWeight="700">
-            Featured Categories
+        <Stack>
+          <Text fontSize="16px" fontWeight="bold">
+            OUR SUPPORT
           </Text>
           {Categories.map((el, i) => (
-            <Text key={i} fontSize="14px" fontWeight="500" cursor="pointer">
+            <>
+            <Text key={i} fontSize="14px" cursor="pointer">
               {el.link}
             </Text>
+            <hr color="red"/>
+            </>
           ))}
         </Stack>
-        <Stack gap="10px">
-          <Text fontSize="16px" fontWeight="700">
-            Need Help
+        <Stack>
+          <Text fontSize="16px" fontWeight="bold">
+           MY ACCOUNT
           </Text>
           {NeedHelp.map((el, i) => (
-            <Text key={i} fontSize="14px" fontWeight="500" cursor="pointer">
+            <>
+            <Text key={i} fontSize="14px" cursor="pointer">
               {el.link}
             </Text>
-          ))}
-          <Text fontSize="16px" fontWeight="700" paddingTop="20px">
-            Policy Info
-          </Text>
-          {PolicyInfo.map((el, i) => (
-            <Text key={i} fontSize="14px" fontWeight="500" cursor="pointer">
-              {el.link}
-            </Text>
+            <hr />
+            </>
           ))}
         </Stack>
         <Stack gap="10px" marginRight="20px">
           <Text fontSize="16px" fontWeight="700">
-            Follow us on
+           OPENING HOURS
           </Text>
+            <Text>Mon - Sat : (08:00am - 10:00pm)</Text>
+            <Text>Sun : (08:00am -06:00pm)</Text>
+            <Text color='grey'>All times India Standard Time (IST)</Text>
+            <Text>ANY QUERIES?</Text>
           <Stack direction="horizontal" gap="25px">
-            <BsInstagram
-              style={{ width: "25px", height: "25px", cursor: "pointer" }}
-            />
-            <BsFacebook
-              style={{ width: "25px", height: "25px", cursor: "pointer" }}
-            />
-            <BsYoutube
-              style={{ width: "25px", height: "25px", cursor: "pointer" }}
-            />
-            <BsTwitter
-              style={{ width: "25px", height: "25px", cursor: "pointer" }}
-            />
+          <AiOutlineMail color="aqua"/>
+          <Text>admin@alldaygeneric.com</Text>
           </Stack>
         </Stack>
       </Stack>
@@ -90,9 +78,11 @@ const Footer = () => {
               <Image key={i} src={el.img} height="18px" />
             ))}
           </Stack>
-          <Text fontSize="14px">© 2022 PharmEasy. All Rights Reserved</Text>
+          <Text fontSize="14px">© 2022 AllDayGenric. All Rights Reserved</Text>
         </Stack>
       </Stack>
+      <Text fontWeight='bold'>Important disclaimer</Text>
+      <Text color='grey'>Please note that not all medications, including any referenced on this page, are dispensed from our affiliated Indian pharmacy</Text>
     </div>
   );
 };

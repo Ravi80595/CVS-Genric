@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import BestSeller from "../Components/BestSeller";
 import OnlineDrugStore from "../Static/OnlineDrugStore";
 import Accordian from "../Components/Accordian";
-import CaptionCarousel from "../Components/Carousel";
 import {
   Box,
   Divider,
@@ -15,20 +14,29 @@ import {
 import Carousel from "../Components/Carousel";
 import { BiSearch } from "react-icons/bi";
 import { ImCart, ImTruck } from "react-icons/im";
-// import { HiOutlineDocumentCheck } from "react-icons/hi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faPinterest } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-// import Footer from "../Components/Footer";
 import SideBar from "../Components/SideBar";
 import Navbar from '../Components/Navbar'
 import Footer from "../Components/Footer/Foter";
+import ChatBox from "../Components/ChatBox";
+import ChatIcon from "../Components/ChatIcons";
+import ChatIcon2 from "../Components/ChatIcon2";
+
 
 function HomePage() {
-  return (
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+  const handleChatIconClick = () => {
+    setIsChatOpen(!isChatOpen);
+  };
+
+
+return (
     <>
     <Navbar/>
       <Flex justifyContent={"space-evenly"} mb={10} w='95%' m='auto'>
@@ -44,8 +52,7 @@ function HomePage() {
       <OnlineDrugStore />
       <Accordian />
       <Flex m={"auto"} w={"80%"} p={1} bg={"blackAlpha.200"} mb={10}>
-        <SimpleGrid columns={[1, null, 4]} spacing="15px">
-          <Flex w={40} mr={10} mt={4}>
+          <Flex w={40} mr={10} mt={4} borderRight='2px solid white'>
             <Box mr={6}>
               <BiSearch size={40} />
             </Box>
@@ -58,7 +65,7 @@ function HomePage() {
               </Text>
             </Box>
           </Flex>
-          <Flex w={40} mr={10} mt={4}>
+          <Flex w={40} mr={10} mt={4} borderRight='2px solid white'>
             <Box mr={6}>
               <ImCart size={40} />
             </Box>
@@ -71,7 +78,7 @@ function HomePage() {
               </Text>
             </Box>
           </Flex>
-          <Flex w={40} mr={10} mt={4}>
+          <Flex w={40} mr={10} mt={4} borderRight='2px solid white'>
             <Box mr={6}>
               <ImTruck size={40} />
             </Box>
@@ -97,7 +104,6 @@ function HomePage() {
               </Text>
             </Box>
           </Flex>
-        </SimpleGrid>
       </Flex>
       <Flex justifyContent={"end"} p={5} bgColor={"#0c8281"}>
         <Box mr={2} p={1.5} bg={"#3b5a9a"}>
@@ -116,8 +122,12 @@ function HomePage() {
           <FontAwesomeIcon icon={faLinkedin} size="lg" color="white" />
         </Box>
       </Flex>
-      {/* <Footer /> */}
       <Footer/>
+      <div className="chat">
+      {isChatOpen && <ChatBox/>}
+      {isChatOpen?<ChatIcon2 onClick={handleChatIconClick}/>:
+      <ChatIcon onClick={handleChatIconClick} />}
+      </div>
     </>
   );
 }
