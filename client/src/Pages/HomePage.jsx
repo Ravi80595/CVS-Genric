@@ -51,8 +51,9 @@ return (
       <BestSeller />
       <OnlineDrugStore />
       <Accordian />
-      <Flex m={"auto"} w={"80%"} p={1} bg={"blackAlpha.200"} mb={10}>
-          <Flex w={40} mr={10} mt={4} borderRight='2px solid white'>
+      <Flex m={"auto"} w={"80%"} p={4} bg={"blackAlpha.200"} mb={10}>
+        <Flex justifyContent='space-around' w='100%'>
+          <Flex mr={5} mt={4}  w={'25%'} pr={5} borderRight='2px solid white'>
             <Box mr={6}>
               <BiSearch size={40} />
             </Box>
@@ -65,7 +66,7 @@ return (
               </Text>
             </Box>
           </Flex>
-          <Flex w={40} mr={10} mt={4} borderRight='2px solid white'>
+          <Flex  w={'25%'} mt={4} pr={10} borderRight='2px solid white'>
             <Box mr={6}>
               <ImCart size={40} />
             </Box>
@@ -78,8 +79,8 @@ return (
               </Text>
             </Box>
           </Flex>
-          <Flex w={40} mr={10} mt={4} borderRight='2px solid white'>
-            <Box mr={6}>
+          <Flex w={'25%'} mr={10} ml={5} pr={30} mt={4} borderRight='2px solid white'>
+            <Box pr={6}>
               <ImTruck size={40} />
             </Box>
             <Box>
@@ -91,8 +92,8 @@ return (
               </Text>
             </Box>
           </Flex>
-          <Flex mr={10} mt={4}>
-            <Box mr={6}>
+          <Flex  w={'25%'} mt={4}>
+            <Box>
               <ImTruck size={40} />
             </Box>
             <Box>
@@ -103,6 +104,7 @@ return (
                 Trusted Pharmacy
               </Text>
             </Box>
+          </Flex>
           </Flex>
       </Flex>
       <Flex justifyContent={"end"} p={5} bgColor={"#0c8281"}>

@@ -27,24 +27,24 @@ function BestSeller() {
         <TabList mb={8}>
           <Tab
             ml={8}
-            bg='blue'
-            color='white'
+            bg="#e1eff8"
+            color="#5194d1"
             borderRadius={16}
             h={12}
             pl={8}
             pr={8}
-            _focus={{
-              outline: "blue",
-              background:'blue',
-              color:'white'
-            }
-            }
-            _active={
-              {
-                bg: "blue",
-                color:'white'
-              }
-            }
+            // _focus={{
+            //   outline: "blue",
+            //   background:'blue',
+            //   color:'white'
+            // }
+            // }
+            // _active={
+            //   {
+            //     bg: "blue",
+            //     color:'white'
+            //   }
+            // }
             fontWeight={"bold"}
             fontSize={20}
           >
@@ -52,7 +52,7 @@ function BestSeller() {
           </Tab>
           <Tab
             ml={6}
-            bg='red'
+            bg="#e1eff8"
             color={"#5194d1"}
             borderRadius={16}
             h={12}
@@ -61,16 +61,16 @@ function BestSeller() {
             // w={28}
             fontWeight={"bold"}
             fontSize={20}
-            _focus={{
-              outline: "red",
-              background:'red'
-            }
-            }
-            _active={
-              {
-                bg: "red"
-              }
-            }
+            // _focus={{
+            //   outline: "red",
+            //   background:'red'
+            // }
+            // }
+            // _active={
+            //   {
+            //     bg: "red"
+            //   }
+            // }
           >
             Body
           </Tab>

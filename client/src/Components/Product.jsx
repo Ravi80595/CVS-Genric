@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Button, Flex, Image, Text, background } from "@chakra-ui/react";
 
-function Product({ image, title, price,color }) {
+function Product({ image, title, price }) {
   return (
     <>
       <Box
@@ -47,7 +47,7 @@ function Product({ image, title, price,color }) {
         </Text>
         <Button
           h={14}
-          bgColor={color}
+          bgColor={'teal'}
           textColor={"white"}
           _hover={"none"}
           roundedBottomLeft={20}
