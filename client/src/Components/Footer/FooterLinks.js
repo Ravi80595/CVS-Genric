@@ -44,21 +44,6 @@ export const Categories=[
     },
     {
         link:"Skin Care"
-    },
-    {
-        link:"Home Care"
-    },
-    {
-        link:"Ayurvedic Care"
-    },
-    {
-        link:"Sexual Wellness"
-    },
-    {
-        link:"Fitness & Supplements"
-    },
-    {
-        link:"Mother and Baby Care"
     }
 ]
 

@@ -27,13 +27,24 @@ function BestSeller() {
         <TabList mb={8}>
           <Tab
             ml={8}
-            bg={"#e1eff8"}
-            color={"#5194d1"}
+            bg="#e1eff8"
+            color="#5194d1"
             borderRadius={16}
             h={12}
             pl={8}
             pr={8}
-            // w={28}
+            // _focus={{
+            //   outline: "blue",
+            //   background:'blue',
+            //   color:'white'
+            // }
+            // }
+            // _active={
+            //   {
+            //     bg: "blue",
+            //     color:'white'
+            //   }
+            // }
             fontWeight={"bold"}
             fontSize={20}
           >
@@ -41,7 +52,7 @@ function BestSeller() {
           </Tab>
           <Tab
             ml={6}
-            bg={"#e1eff8"}
+            bg="#e1eff8"
             color={"#5194d1"}
             borderRadius={16}
             h={12}
@@ -50,6 +61,16 @@ function BestSeller() {
             // w={28}
             fontWeight={"bold"}
             fontSize={20}
+            // _focus={{
+            //   outline: "red",
+            //   background:'red'
+            // }
+            // }
+            // _active={
+            //   {
+            //     bg: "red"
+            //   }
+            // }
           >
             Body
           </Tab>
@@ -113,36 +134,38 @@ function BestSeller() {
         <TabPanels>
           <TabPanel>
             <SimpleGrid columns={[1, 2, 4]} spacing="35px">
-              <Product image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/Anti-Hair-Loss-Cream-300x300.jpg'} title={'Anti hair loss cream'}/>
-              <Product image={'https://www.alldaygeneric.com/wp-content/uploads/2019/02/Appecia-1-mg-300x300.jpg'} title={'Appecia 1 mg'} />
-              <Product image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/Bontress-Hair-Serum-300x300.jpg'} title={'Bontress Hair serum'} />
-              <Product image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/Bontress-Lotion-300x300.jpg'} title={'Anti hair loss cream'} />
+              <Product color='blue' price={399} image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/Anti-Hair-Loss-Cream-300x300.jpg'} title={'Anti hair loss cream'} />
+              <Product color='blue' price={250} image={'https://www.alldaygeneric.com/wp-content/uploads/2019/02/Appecia-1-mg-300x300.jpg'} title={'Appecia 1 mg'} />
+              <Product color='blue' price={1200} image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/Bontress-Hair-Serum-300x300.jpg'} title={'Bontress Hair serum'} />
+              <Product color='blue' price={999} image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/Bontress-Lotion-300x300.jpg'} title={'Anti hair loss cream'} />
             </SimpleGrid>
           </TabPanel>
           <TabPanel>
             <SimpleGrid columns={[1, 2, 4]} spacing="35px">
-              <Product image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/ayurslim-capsule-300x300.jpg'} title={'Ayurslim capsule'}/>
-              <Product image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/ayurslim-capsule-300x300.jpg'} title={'Obelit'} />
-              <Product image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/Slim-Trim-Active-60-mg-600x600.jpg'} title={'Orlistat 120mg capsule'} />
-              <Product image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/Reeshape-120-mg-600x600.jpg'} title={'Reshape'} />
+              <Product color='red' image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/ayurslim-capsule-300x300.jpg'} title={'Ayurslim capsule'} price={280} />
+              <Product color='red' image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/ayurslim-capsule-300x300.jpg'} title={'Obelit'} price={190} />
+              <Product color='red' image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/Slim-Trim-Active-60-mg-600x600.jpg'} title={'Orlistat 120mg capsule'} price={200} />
+              <Product color='red' image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/Reeshape-120-mg-600x600.jpg'} title={'Reshape'} price={1999} />
             </SimpleGrid>
           </TabPanel>
           <TabPanel>
             <SimpleGrid columns={[1, 2, 4]} spacing="35px">
-              <Product image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/acnedap-gel-300x300.jpghttps://www.alldaygeneric.com/wp-content/uploads/2019/01/Bontress-Lotion-300x300.jpg'} title={'Anti hair loss cream'} />
-              <Product image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/acnedap-gel-300x300.jpg'} title={'Anti hair loss cream'} />
-              <Product image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/Bontress-Hair-Serum-300x300.jpg'} title={'Bontress Hair serum'} />
-              <Product image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/Bontress-Lotion-300x300.jpg'} title={'Anti hair loss cream'} />
+              <Product price={270} image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/acnedap-gel-300x300.jpghttps://www.alldaygeneric.com/wp-content/uploads/2019/01/Bontress-Lotion-300x300.jpg'} title={'Anti hair loss cream'} />
+              <Product price={1400} image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/acnedap-gel-300x300.jpg'} title={'Anti hair loss cream'} />
+              <Product price={120} image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/Bontress-Hair-Serum-300x300.jpg'} title={'Bontress Hair serum'} />
+              <Product price={500} image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/Bontress-Lotion-300x300.jpg'} title={'Anti hair loss cream'} />
             </SimpleGrid>
           </TabPanel>
           <TabPanel>
             <SimpleGrid columns={[1, 2, 4]} spacing="35px">
+              <Product price={120} image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/Bontress-Hair-Serum-300x300.jpg'} title={'Bontress Hair serum'} />
+              <Product price={500} image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/Bontress-Lotion-300x300.jpg'} title={'Anti hair loss cream'} />
               <Product />
-              <Product />
+              <Product image={'https://www.alldaygeneric.com/wp-content/uploads/2019/01/ayurslim-capsule-300x300.jpg'} title={'Ayurslim capsule'} price={280} />
             </SimpleGrid>
           </TabPanel>
           <TabPanel>
-            <SimpleGrid columns={[1, 2, 4]}  spacing="35px">
+            <SimpleGrid columns={[1, 2, 4]} spacing="35px">
               <Product />
               <Product />
             </SimpleGrid>
@@ -178,7 +201,7 @@ function BestSeller() {
       <Text pt={10} fontWeight={"bold"} fontSize={"3xl"}>
         What Our Customer Say
       </Text>
-      <Reviews/>
+      <Reviews />
     </Box>
   );
 }

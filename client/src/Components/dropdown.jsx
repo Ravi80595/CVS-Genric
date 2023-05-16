@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
   Flex,
@@ -10,17 +10,33 @@ import {
   MenuList,
 } from "@chakra-ui/react";
 import { ChevronUpIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import { baseUrl } from "../Utils/BaseUrl";
+import axios from "axios";
 
 function Drop() {
   const [isOpen, setIsOpen] = useState(false);
+  const [data, setData] = useState([])
 
-  const handleMenuToggle = () => {
-    setIsOpen(!isOpen);
-  };
 
-  return (
+  useEffect(() => {
+    getData()
+  }, [])
+
+  const getData = () => {
+    axios.get(`${baseUrl}/admin/allproducts`)
+      .then((res) => {
+        console.log(res.data)
+        setData(res.data)
+      })
+  }
+
+const handleMenuToggle = () => {
+  setIsOpen(!isOpen);
+};
+
+return (
     <Box color={"black"} >
-      <Menu isLazy w='500px'> 
+      <Menu isLazy w='500px'>
         <MenuButton w='300px'
           h='40px'
           color={"blackAlpha.700"}
@@ -32,11 +48,10 @@ function Drop() {
         >
           Select Generic Name
         </MenuButton>
-        <MenuList  w='300px'>
-          <MenuItem>Product 1</MenuItem>
-          <MenuItem>Product 2</MenuItem>
-          <MenuItem>Product 3</MenuItem>
-          <MenuItem>Product 3</MenuItem>
+        <MenuList w='300px' overflow='auto' maxHeight={200}>
+          {data && data.map(ele => (
+            <MenuItem>{ele.name}</MenuItem>
+          ))}
         </MenuList>
       </Menu>
     </Box>
